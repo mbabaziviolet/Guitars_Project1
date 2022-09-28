@@ -64,7 +64,7 @@ class Guitar extends Model
     //guitar rules
     
 
-    //relationships--- adds an abstarct column on the guitar ir backref
+    //relationships--- adds an abstarct column on the guitar ie backref
     public function guitar_images(){
         return $this->hasMany(\App\Models\GuitarImage::class,'guitar_id');
     }

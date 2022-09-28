@@ -11,13 +11,12 @@ class ImageUploadHelper extends Model
     use HasFactory;
 
     public static function uploadImage($file,$destinationfolder){
+        
 
-        if (empty($file)) 
-
+        if(empty($file)){
             return NULL;
-
+        }else{
             $destinationPath = public_path().'/storage/'.$destinationfolder;
-
             if(!File::isDirectory($destinationPath)){
                 File::makeDirectory($destinationPath, 0777, true, true);
             }
@@ -29,5 +28,6 @@ class ImageUploadHelper extends Model
             $file->move($destinationPath,$image_url);
             
             return $image_url;
+        }
     }
 }

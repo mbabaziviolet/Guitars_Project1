@@ -55,18 +55,28 @@ class GuitarController extends AppBaseController
      */
     public function store(CreateGuitarRequest $request)
     {
-        $input = $request->all();
-        $request->validate(\App\Models\Guitar::$rules);
+    //    $input = $request->all();
+    //    $request->validate(\App\Models\Guitar::$rules);
+    //    $requestData = $request->all();
+    //    $fileName = time().$request->file('image')->getClientOriginalName();
+    //    $path = $request->file('image')->storeAs('images', $fileName,'public');
+    //    $requestData["image"] = '/storage/'.$path;
 
+    //    Guitar::create($requestData);
+    //    return redirect('guitar')->with('flash_message','Employee Added');
+    
        $guitar = new Guitar();
        $guitar->name = $request->name;
        $guitar->type = $request->type;
        $guitar->price = $request->price;
-       $guitar->image = $request->image;
-       $guitar->save();
-       $guitar = Guitar::find($guitar->id);
+       if(!empty($request->file('image'))){
 
-       $guitar->image = \App\Models\ImageUploadHelper::uploadImage($request->file('image'),'guitar_images');
+        $fileName = time().$request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('images', $fileName,'public');
+        $requestData["image"] = '/storage/'.$path;
+
+        $guitar->image = $fileName;
+       }
        $guitar->save();
 
 

@@ -28,4 +28,4 @@ Route::resource('guitars', App\Http\Controllers\GuitarController::class);
 Route::resource('guitarImages', App\Http\Controllers\GuitarImageController::class);
 
 
-Route::resource('guitarImages', App\Http\Controllers\GuitarImageController::class);
+// Route::resource('guitarImages', App\Http\Controllers\GuitarImageController::class);
