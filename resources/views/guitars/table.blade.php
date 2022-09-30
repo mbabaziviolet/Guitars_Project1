@@ -14,7 +14,7 @@
             <tr>
                 <td>{{ $guitar->name }}</td>
                 <td>{{ $guitar->type }}</td>
-                <td><img src="{{asset('/storage/images/'.$guitar->image) }}"/></td>
+                <td><img src="{{asset('/storage/images/'.$guitar->image) }}" style="width: 40px; height: 40px" alt="guitar"/></td> 
                 <td>{{ $guitar->price }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['guitars.destroy', $guitar->id], 'method' => 'delete']) !!}

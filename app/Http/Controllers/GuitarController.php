@@ -30,10 +30,13 @@ class GuitarController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $guitars = $this->guitarRepository->all();
+        // $guitars = $this->guitarRepository->all();
 
-        return view('guitars.index')
-            ->with('guitars', $guitars);
+        // return view('guitars.index')
+        //     ->with('guitars', $guitars);
+
+        $guitars = Guitar::all();
+        return view('guitars.index',compact('guitars'));
     }
 
     /**
@@ -83,7 +86,18 @@ class GuitarController extends AppBaseController
         Flash::success('Guitar saved successfully.');
 
         return redirect(route('guitars.index'));
+
+   
+        
     }
+
+
+
+
+
+
+
+    
 
     /**
      * Display the specified Guitar.
