@@ -2,49 +2,25 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ecommerce Slider</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-   
-</head>
-
-     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script> 
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
 
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="true">
-  
-  <div class="carousel-inner">
-  @foreach($guitars as $guitar)
-    <div class="carousel-item active">
-      <img src="{{asset('/storage/images/'.$guitar['image']) }}" class="d-block w-100" alt="...">
-   
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Get Your Guitar</h5>
-        <p>Some guitars at an available and affordable price.</p>
-      </div>
-    </div>
-    @endforeach
-    
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+
+<!-- SLIDER -->
+<div class="owl-carousel owl-theme hero-slider">
+        <div class="slide slide1">
+            <div class="container">
+                <div class="row">
+                @foreach($guitars as $guitar)
+                    <div class="col-12 text-center text-white">
+                    <img src="{{asset('/storage/images/'.$guitar['image']) }}" class="d-block w-100" alt="...">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+                @endforeach
 </div>
-
-
-     
 
 
 <section class="text-center">
