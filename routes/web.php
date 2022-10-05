@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +22,17 @@ Auth::routes();
 
 Route::get('/',[ App\Http\Controllers\FrontendController::class,'index']);
 
-Route::get('/collections',[ App\Http\Controllers\FrontendController::class,'guitars']);
+Route::get('/guitar/{id}',[ App\Http\Controllers\FrontendController::class,'guitar']);
+
+Route::get('/collections',[ App\Http\Controllers\FrontendController::class,'categories']);
+
+Route::get('/collections/{id}',[ App\Http\Controllers\FrontendController::class,'products']);
+
+Route::get('/shop',[ App\Http\Controllers\FrontendController::class,'shops']);
+
+Route::get('/shop/{id}',[ App\Http\Controllers\FrontendController::class,'shop']);
+
+// Route::get('/collections{guitar_name}',[ App\Http\Controllers\FrontendController::class,'products']);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -33,4 +44,11 @@ Route::resource('guitars', App\Http\Controllers\GuitarController::class);
 Route::resource('guitarImages', App\Http\Controllers\GuitarImageController::class);
 
 
-// Route::resource('guitarImages', App\Http\Controllers\GuitarImageController::class);
+Route::get('/contact-us',[App\Http\Controllers\ContactController::class,'contact']);
+
+
+Route::post('/send-message',[App\Http\Controllers\ContactController::class,'sendEmail'])->name('contact.send');
+
+
+
+

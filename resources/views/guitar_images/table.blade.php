@@ -11,7 +11,7 @@
         @foreach($guitarImages as $guitarImage)
             <tr>
                 <td>{{ $guitarImage->image }}</td>
-            <td>{{ $guitarImage->guitar_id }}</td>
+                <td><img src="{{asset('/storage/images/'.$guitarImage->image) }}" style="width: 40px; height: 40px" alt="guitar"/></td> 
                 <td width="120">
                     {!! Form::open(['route' => ['guitarImages.destroy', $guitarImage->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

@@ -34,7 +34,7 @@ class GuitarController extends AppBaseController
 
         // return view('guitars.index')
         //     ->with('guitars', $guitars);
-
+        
         $guitars = Guitar::all();
         return view('guitars.index',compact('guitars'));
     }

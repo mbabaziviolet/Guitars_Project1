@@ -55,21 +55,42 @@ class GuitarImageController extends AppBaseController
      */
     public function store(CreateGuitarImageRequest $request)
     {
-        $input = $request->all();
-        $request->validate(\App\Models\GuitarImage::$rules);
+        // $input = $request->all();
+        // $request->validate(\App\Models\GuitarImage::$rules);
 
-        $guitar_image = new GuitarImage();
-        $guitar_image->guitar_id = $request->guitar_id;
-        $guitar_image->image = $request->image;
-        $guitar_image->save();
+        // $guitar_image = new GuitarImage();
+        // $guitar_image->guitar_id = $request->guitar_id;
+        // $guitar_image->image = $request->image;
+        // $guitar_image->save();
 
-        $guitar_image = GuitarImage::find($guitar_image->id);
-        $guitar_image->image = \App\Models\ImageUploadHelper::uploadImage($request->file('image'),'guitar_sliders');
-        $guitar_image->save();
+        // $guitar_image = GuitarImage::find($guitar_image->id);
+        // $guitar_image->image = \App\Models\ImageUploadHelper::uploadImage($request->file('image'),'guitar_sliders');
+        // $guitar_image->save();
 
-        Flash::success('Guitar Image saved successfully.');
+        // Flash::success('Guitar Image saved successfully.');
+
+        // return redirect(route('guitarImages.index'));
+
+
+       $guitar_image = new GuitarImage();
+       $guitar_image->guitar_id = $request->guitar_id;
+       $guitar_image->image = $request->image;
+      
+       if(!empty($request->file('image'))){
+
+        $fileName = time().$request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('images', $fileName,'public');
+        $requestData["image"] = '/storage/'.$path;
+
+        $guitar_image->image = $fileName;
+       }
+       $guitar_image->save();
+
+
+        Flash::success('GuitarImage saved successfully.');
 
         return redirect(route('guitarImages.index'));
+
     }
 
     /**

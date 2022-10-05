@@ -31,11 +31,13 @@
 
      
 
-        
-
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
+
+      @include('layouts.inc.frontend.footer')
+
+
     </div>
     <!-- Scripts -->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
@@ -43,13 +45,6 @@
 
  
 
-<!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">Guitars.com</a>
-    </div> 
-    <!-- Copyright -->
-  </footer> 
   <!--Footer-->
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
@@ -58,6 +53,11 @@
     <script type="text/javascript" src="js/script.js"></script>
 
     <script type="text/javascript" src="src/js/mdb.free.js"></script> 
+
+
+
+
+   
 
 
 

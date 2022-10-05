@@ -4,9 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGuitarImagesTable extends Migration
+class CreateProductsTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,12 +13,10 @@ class CreateGuitarImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('guitar_images', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('image');
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->timestamps();
-            $table->softDeletes();
-            
         });
     }
 
@@ -30,6 +27,6 @@ class CreateGuitarImagesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('guitar_images');
+        Schema::dropIfExists('products');
     }
 }
