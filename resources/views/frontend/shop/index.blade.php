@@ -2,6 +2,20 @@
 
 @section('content')
 
+<div
+              class="position-relative rounded overflow-hidden h-100"
+              style="min-height: 400px"
+            >
+            
+              <img
+                class="position-absolute w-100 h-100"
+                src="https://media.istockphoto.com/photos/blue-electric-guitar-floating-in-blue-background-minimal-concept-idea-picture-id1317627262?k=20&m=1317627262&s=612x612&w=0&h=pUQAlHqbb5F0KDlMD5OWL11p4yfAvKMpkDCs9rlbQzg="
+                alt="" ><h1>heee</h1>
+
+                style="object-fit: cover"
+              />
+            </div>
+
 <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-0 gx-5 align-items-end">

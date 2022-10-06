@@ -14,7 +14,7 @@
                     <div class="col-12 text-center text-white">
                     <img src="{{asset('/storage/images/'.$guitarlist['image']) }}" class="img-fluid">
                         <h6 class="text-white text-uppercase">design Driven for professional</h6>
-                        <h1 class="display-3 my-4">We craft digital<br />experiances</h1>
+                        <h4 class="display-3 my-4">We craft digital<br />experiances</h4>
                         
                     </div>
                 </div>
@@ -321,6 +321,12 @@
         </div>
     </section>
 
+
+
+
+
+
+    
 
     
 

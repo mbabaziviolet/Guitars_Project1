@@ -4,41 +4,57 @@
 
 
 
-
-      
-<div class="col-lg-6">
-                    <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                        
+<div class="py-3 py-md-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mt-3">
+                    <div class="bg-white border">
+                    <div class="category-card-img">
+                                <img src="{{asset('/storage/images/'.$guitars['image']) }}" class="w-200" alt="guitars">
+                            </div>
                     </div>
                 </div>
+                <div class="col-md-7 mt-3">
+                    <div class="product-view">
+                        <h4 class="product-name">
+                        <h5>{{$guitars->name}}</h5>
+                            <label class="label-stock bg-success">In Stock</label>
+                        </h4>
+                        <hr>
+                        <p class="product-path">
+                            Home / Category / Product / HP Laptop
+                        </p>
+                       
+                                <h5>{{$guitars->price}}</h5>
 
- <div class="tab-content">
-                <div id="tab-1" class="tab-pane fade show p-0 active">
-                    <div class="row g-4">
-                    <div class="col-lg-3 col-md-12 mr-6">
-                        
-                            <div class="product-item">
-                                <div class="position-flex bg-light overflow-hidden">
-                               
-                                <img src="{{asset('/storage/images/'.$guitars['image']) }}" class="img-fluid">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">{{$guitars->name}}</a>
-                                    <span class="text-primary me-1">{{$guitars->price}}</span>
-                                   
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
+                                <div class="wrapper">
+      <span class="minus">
+        <span></span>
+      </span>
+      <span class="num">1</span>
+      <span class="plus">
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+                           
+                         
+                      
+                        <div class="mt-2">
+                            <a href="" class="btn btn1"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
+                            <a href="" class="btn btn1"> <i class="fa fa-heart"></i> Add To Wishlist </a>
                         </div>
-</div>
+                        <div class="mt-3">
+                          
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
 
     
 <div class="container-fluid bg-primary bg-icon mt-5 py-6">
