@@ -51,10 +51,12 @@
     <!-- Scripts -->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}" defer></script>
-
-    <script src="{{ asset('assets/js/app.js') }}" defer></script>
-    <script src="{{ asset('assets/js/jquery.min.js') }}" defer></script>
+    <!-- <script src="{{ asset('assets/js/jquery.min.js') }}" defer></script> -->
     <script src="{{ asset('assets/js/owl.carousel.min.js') }}" defer></script>
+
+    <script src="{{ asset('assets/lib/counterup/counterup.min.js')}}"></script>
+    <script src="{{ asset('assets/js/app.js') }}" defer></script>
+
 
 
 

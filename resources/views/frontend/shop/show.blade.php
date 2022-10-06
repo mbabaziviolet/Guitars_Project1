@@ -2,19 +2,23 @@
 
 @section('content')
 
+
+
+
+      
 <div class="col-lg-6">
                     <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                        <h1 class="display-5 mb-3">Shop with Us </h1>
-                        <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                        
                     </div>
                 </div>
 
  <div class="tab-content">
                 <div id="tab-1" class="tab-pane fade show p-0 active">
                     <div class="row g-4">
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col-lg-3 col-md-12 mr-6">
+                        
                             <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
+                                <div class="position-flex bg-light overflow-hidden">
                                
                                 <img src="{{asset('/storage/images/'.$guitars['image']) }}" class="img-fluid">
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>

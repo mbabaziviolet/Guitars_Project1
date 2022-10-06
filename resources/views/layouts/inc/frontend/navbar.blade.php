@@ -90,6 +90,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/collections')}}">Categories</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/our-products')}}">Products</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/shop')}}">Shop Now</a>
                         </li>

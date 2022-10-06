@@ -24,9 +24,15 @@ Route::get('/',[ App\Http\Controllers\FrontendController::class,'index']);
 
 Route::get('/guitar/{id}',[ App\Http\Controllers\FrontendController::class,'guitar']);
 
+//the categories route
 Route::get('/collections',[ App\Http\Controllers\FrontendController::class,'categories']);
 
-Route::get('/collections/{id}',[ App\Http\Controllers\FrontendController::class,'products']);
+Route::get('/collections/{id}',[ App\Http\Controllers\FrontendController::class,'category']);
+ //the products route
+Route::get('/our-products',[ App\Http\Controllers\FrontendController::class,'products']);
+
+//product route id
+Route::get('/our-products/{id}',[ App\Http\Controllers\FrontendController::class,'product']);
 
 Route::get('/shop',[ App\Http\Controllers\FrontendController::class,'shops']);
 
@@ -52,3 +58,9 @@ Route::post('/send-message',[App\Http\Controllers\ContactController::class,'send
 
 
 
+
+
+Route::resource('products', App\Http\Controllers\ProductController::class);
+
+
+Route::resource('categories', App\Http\Controllers\CategoryController::class);

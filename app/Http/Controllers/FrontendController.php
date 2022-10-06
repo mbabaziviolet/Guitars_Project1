@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use App\Models\Guitar;
+use App\Models\Product;
+use App\Models\Category;
 class FrontendController extends Controller
-{
+{ 
+    //the index page which displays all guitars
     public function index()
     {  
          $guitars = Guitar::all();
@@ -14,30 +19,51 @@ class FrontendController extends Controller
 
     }
 
-    public function categories()
-    {  
-        $guitars = Guitar::all();
-        return view('frontend.collections.category.index',compact('guitars'));
-
-    }
-
-    public function products($id)
-    {  
-        $guitars = Guitar::where('id',$id)->first();
-        return view('frontend.collections.category.show',compact('guitars'));
-
-    }
-
+     // the guitars show page for a specific id
 
     public function guitar($id)
     {
         $guitars = Guitar::where('id',$id)->first();
         return view('frontend.guitars.show',compact('guitars'));
         
-       
+    }
+    
+    //the collections page for guitars
+    public function categories()
+    {  
+        $categories = Category::all();
+        return view('frontend.categories.index',compact('categories'));
 
     }
 
+
+    public function category($id)
+    {  
+        $categories = Category::where('id',$id)->first();
+        return view('frontend.categories.show',compact('categories'));
+
+    }
+
+
+   //the products index
+    public function products()
+    {  
+        $products = Product::all();
+        return view('frontend.products.index',compact('products'));
+
+    }
+    //the products page for picking a certain guitar  id
+
+    public function product($id)
+    {  
+        $products = Product::where('id',$id)->first();
+        return view('frontend.products.show',compact('products'));
+
+    }
+
+ 
+    
+// the shops page for picking all guitars at index
 
     public function shops()
     {  
@@ -45,6 +71,7 @@ class FrontendController extends Controller
         return view('frontend.shop.index',compact('guitars'));
 
     }
+    //the shop page for a specific id using the show
 
     public function shop($id)
     {

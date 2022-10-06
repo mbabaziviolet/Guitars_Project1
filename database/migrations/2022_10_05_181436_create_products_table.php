@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -14,9 +15,15 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             $table->string('name');
+            $table->string('slug');
+            $table->string('description');
+            $table->string('image');
+            $table->integer('price');
+            $table->integer('quantity');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +34,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::drop('products');
     }
 }
