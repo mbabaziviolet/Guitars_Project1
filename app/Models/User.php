@@ -2,43 +2,82 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\Permission\Traits\HasRoles;
+use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Models\Role;
 
-class User extends Authenticatable
+/**
+ * Class User
+ * @package App\Models
+ * @version October 8, 2022, 11:18 am UTC
+ *
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ * @property string $image_url
+ * @property integer $country_id
+ * @property integer $role_id
+ * @property string $password
+ */
+class User extends Authenticable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use SoftDeletes;
+    use HasRoles;
+    use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
+    public $table = 'users';
+
+
+    protected $dates = ['deleted_at'];
+
+
+
+    public $fillable = [
+
         'name',
         'email',
+        'role',
         'password',
+        
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be casted to native types.
      *
-     * @var array<int, string>
+     * @var array
      */
+    protected $casts = [
+        'name' => 'string',
+        'email' => 'string',
+        'password' => 'string',
+        'email_verified_at' => 'datetime',
+        
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'name' => 'required|string',
+        'email' => 'required|unique:users,id',
+        'role' => 'required|string',
+        'password' => 'required',
+        'email_verified_at' => 'datetime',
+       
+    ];
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    
+
+
 }

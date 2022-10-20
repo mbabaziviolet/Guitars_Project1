@@ -35,6 +35,8 @@ class GuitarController extends AppBaseController
         // return view('guitars.index')
         //     ->with('guitars', $guitars);
         
+        //backend for guitars
+        //picking all guitars
         $guitars = Guitar::all();
         return view('guitars.index',compact('guitars'));
     }
@@ -58,22 +60,15 @@ class GuitarController extends AppBaseController
      */
     public function store(CreateGuitarRequest $request)
     {
-    //    $input = $request->all();
-    //    $request->validate(\App\Models\Guitar::$rules);
-    //    $requestData = $request->all();
-    //    $fileName = time().$request->file('image')->getClientOriginalName();
-    //    $path = $request->file('image')->storeAs('images', $fileName,'public');
-    //    $requestData["image"] = '/storage/'.$path;
-
-    //    Guitar::create($requestData);
-    //    return redirect('guitar')->with('flash_message','Employee Added');
-    
+   
+        //storing all the images 
        $guitar = new Guitar();
        $guitar->name = $request->name;
        $guitar->type = $request->type;
        $guitar->price = $request->price;
        if(!empty($request->file('image'))){
 
+        //picking the images in the file directory
         $fileName = time().$request->file('image')->getClientOriginalName();
         $path = $request->file('image')->storeAs('images', $fileName,'public');
         $requestData["image"] = '/storage/'.$path;
@@ -82,9 +77,10 @@ class GuitarController extends AppBaseController
        }
        $guitar->save();
 
-
+// a successs message when the guitar is added
         Flash::success('Guitar saved successfully.');
 
+        //redirecting to ihe index page where all guitars are
         return redirect(route('guitars.index'));
 
    

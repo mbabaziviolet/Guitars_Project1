@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,18 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Auth::routes();
-
+//the index route
 Route::get('/',[ App\Http\Controllers\FrontendController::class,'index']);
+
+
+
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'cartList'])->name('cart.list');
+Route::post('/cart', [App\Http\Controllers\CartController::class, 'addToCart'])->name('cart.store');
+Route::post('/update-cart', [App\Http\Controllers\CartController::class, 'updateCart'])->name('cart.update');
+Route::post('/remove', [App\Http\Controllers\CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('/clear', [App\Http\Controllers\CartController::class, 'clearAllCart'])->name('cart.clear');
+
+
 
 Route::get('/guitar/{id}',[ App\Http\Controllers\FrontendController::class,'guitar']);
 
@@ -34,13 +45,23 @@ Route::get('/our-products',[ App\Http\Controllers\FrontendController::class,'pro
 //product route id
 Route::get('/our-products/{id}',[ App\Http\Controllers\FrontendController::class,'product']);
 
+
+//add to cart
+// Route::post("add_to_cart",[ProductController::class,'addToCart']);
+
+//shop route
 Route::get('/shop',[ App\Http\Controllers\FrontendController::class,'shops']);
 
 Route::get('/shop/{id}',[ App\Http\Controllers\FrontendController::class,'shop']);
 
 // Route::get('/collections{guitar_name}',[ App\Http\Controllers\FrontendController::class,'products']);
 
+// Route::prefix('')->middleware(['auth','isAdmin'])->group(function (){
 
+//     Route::get('guitars',[App\Http\Controllers\Admin\DashboardController::class, 'index']);
+    
+
+// });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -58,9 +79,20 @@ Route::post('/send-message',[App\Http\Controllers\ContactController::class,'send
 
 
 
-
-
 Route::resource('products', App\Http\Controllers\ProductController::class);
 
 
 Route::resource('categories', App\Http\Controllers\CategoryController::class);
+
+
+
+
+
+
+Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+
+
+Route::resource('roles', App\Http\Controllers\RoleController::class);
+
+
+Route::resource('users', App\Http\Controllers\UserController::class);

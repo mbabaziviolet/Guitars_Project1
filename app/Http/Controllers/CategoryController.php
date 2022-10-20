@@ -30,6 +30,7 @@ class CategoryController extends AppBaseController
      */
     public function index(Request $request)
     {
+        //picking all the products
         $categories = Category::all();
         return view('categories.index',compact('categories'));
     }
@@ -59,7 +60,7 @@ class CategoryController extends AppBaseController
         $category->brand = $request->brand;
         $category->price = $request->price;
         if(!empty($request->file('image'))){
- 
+  //picking the images in the file directory
          $fileName = time().$request->file('image')->getClientOriginalName();
          $path = $request->file('image')->storeAs('images', $fileName,'public');
          $requestData["image"] = '/storage/'.$path;

@@ -8,6 +8,7 @@ use App\Repositories\ProductRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Cart;
 use Flash;
 use Response;
 
@@ -30,7 +31,7 @@ class ProductController extends AppBaseController
      */
     public function index(Request $request)
     {
-       
+       //picking all the products
         $products = Product::all();
         return view('products.index',compact('products'));
     }
@@ -64,6 +65,7 @@ class ProductController extends AppBaseController
         $product->price = $request->price;
         if(!empty($request->file('image'))){
  
+             //picking the images in the file directory
          $fileName = time().$request->file('image')->getClientOriginalName();
          $path = $request->file('image')->storeAs('images', $fileName,'public');
          $requestData["image"] = '/storage/'.$path;
@@ -170,4 +172,15 @@ class ProductController extends AppBaseController
 
         return redirect(route('products.index'));
     }
+    
+  //add to cart
+
+    // function addToCart(Request $req)
+    // {
+    //     $cart= new Cart;
+    //     $cart->product_id=$req->product_id;
+    //     // dd($cart);
+    //     $cart->save();
+    //     return redirect('/');
+    // }
 }

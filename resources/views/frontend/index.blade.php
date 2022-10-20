@@ -1,10 +1,11 @@
 @extends('layouts.app')
-
 @section('content')
 
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-        
+<!-- font awesome icons-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 <!-- SLIDER -->
 <div class="owl-carousel owl-theme hero-slider">
       @foreach($guitars as $guitarlist)
@@ -13,8 +14,8 @@
                 <div class="row">
                     <div class="col-12 text-center text-white">
                     <img src="{{asset('/storage/images/'.$guitarlist['image']) }}" class="img-fluid">
-                        <h6 class="text-white text-uppercase">design Driven for professional</h6>
-                        <h4 class="display-3 my-4">We craft digital<br />experiances</h4>
+                        <h6 class="text-white text-uppercase"></h6>
+                        <h4 class="display-3 my-4">We sell admirable<br />guitars</h4>
                         
                     </div>
                 </div>
@@ -41,7 +42,8 @@
               <div class="card-body">
                 <h5 class="card-title">{{$guitarlist['name']}}</h5>
                 <p class="card-text">
-                {{$guitarlist['price']}}
+                ugx
+                {{number_format($guitarlist['price'])}}
                 </p>
                 
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -277,56 +279,21 @@
             </div>
         </div>
         <div id="projects-slider" class="owl-theme owl-carousel">
+        @foreach($guitars as $guitarlist)
             <div class="project">
                 <div class="overlay"></div>
-                <img src="{{URL::asset('/images/guitarimg2.jpg')}}" alt="profile Pic" height="440" width="200">
+                <img src="{{asset('/storage/images/'.$guitarlist['image']) }}" class="img-fluid">
                 <div class="content">
                     <h2>Consulting</h2>
                     <h6>Make Your Rehearsals</h6>
                 </div>
             </div>
-            <div class="project">
-                <div class="overlay"></div>
-                <img src="{{URL::asset('/images/guitarimg3.jpg')}}" alt="profile Pic" height="440" width="200">
-                
-                <div class="content">
-                    <h2>Consulting</h2>
-                    <h6>Come And Learn</h6>
-                </div>
-            </div>
-            <div class="project">
-                <div class="overlay"></div>
-                <img src="{{URL::asset('/images/guitarimg5.jpg')}}" alt="profile Pic" height="440" width="200">
-                <div class="content">
-                    <h2>Consulting </h2>
-                    <h6>Make Your Rehearsals</h6>
-                </div>
-            </div>
-            <div class="project">
-                <div class="overlay"></div>
-                <img src="{{URL::asset('/images/guitarimg6.jpg')}}" alt="profile Pic" height="440" width="200">
-                <div class="content">
-                    <h2>Consulting </h2>
-                    <h6>Come And Enjoy</h6>
-                </div>
-            </div>
-            <div class="project">
-                <div class="overlay"></div>
-                <img src="{{URL::asset('/images/guitarimg7.jpg')}}" alt="profile Pic" height="440" width="200">
-                <div class="content">
-                    <h2>Consulting </h2>
-                    <h6>Make Your Rehearsals</h6>
-                </div>
-            </div>
-        </div>
+        @endforeach
+          </div>
     </section>
 
 
 
-
-
-
-    
 
     
 

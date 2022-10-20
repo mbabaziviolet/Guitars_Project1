@@ -19,7 +19,7 @@ class FrontendController extends Controller
 
     }
 
-     // the guitars show page for a specific id
+     // the guitars show page for a specific guitar using id
 
     public function guitar($id)
     {
@@ -28,7 +28,7 @@ class FrontendController extends Controller
         
     }
     
-    //the collections page for guitars
+    //the categories page for guitars
     public function categories()
     {  
         $categories = Category::all();
@@ -36,6 +36,7 @@ class FrontendController extends Controller
 
     }
 
+     // the category show page for a specific category using id
 
     public function category($id)
     {  
@@ -82,6 +83,14 @@ class FrontendController extends Controller
 
     }
 }
+
+
+
+
+
+
+
+
 
 
     // public function products($guitar_name)

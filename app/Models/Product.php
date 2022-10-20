@@ -68,5 +68,11 @@ class Product extends Model
         'quantity' => 'required|integer'
     ];
 
+//     public function categories()
+// {
+//     return $this->belongsToMany(Category::class);
+// }
+
+
     
 }

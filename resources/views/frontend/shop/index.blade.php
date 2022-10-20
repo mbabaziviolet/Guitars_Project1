@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+<!--the  shop index page-->
 <div
               class="position-relative rounded overflow-hidden h-100"
               style="min-height: 400px"
@@ -9,7 +11,7 @@
             
               <img
                 class="position-absolute w-100 h-100"
-                src="https://media.istockphoto.com/photos/blue-electric-guitar-floating-in-blue-background-minimal-concept-idea-picture-id1317627262?k=20&m=1317627262&s=612x612&w=0&h=pUQAlHqbb5F0KDlMD5OWL11p4yfAvKMpkDCs9rlbQzg="
+                src="{{URL::asset('/images/guitarbst.jpg')}}"
                 alt="" ><h1>heee</h1>
 
                 style="object-fit: cover"
@@ -58,7 +60,8 @@
                                 </div>
                                 <div class="text-center p-4">
                                     <a class="d-block h5 mb-2" >{{$guitarlist->name}}</a>
-                                    <span class="text-primary me-1">{{$guitarlist->price}}</span>
+                                    <span class="text-primary me-1">ugx
+                {{number_format($guitarlist['price'])}}</span>
                                     <span class="text-body text-decoration-line-through"></span>
                                 </div>
                                 <div class="d-flex border-top">

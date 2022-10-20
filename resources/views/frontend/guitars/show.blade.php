@@ -2,6 +2,7 @@
 
 @section('content')
 
+<!--the show page for a specific guitar-->
 <div class="py-3 py-md-5 bg-light">
         <div class="container">
             <div class="row">
@@ -19,13 +20,15 @@
                 </div>
                 <div class="col-md-7 mt-3">
                     <div class="product-view">
+                    <a href="/">Go Back</a>
                         <h4 class="product-name">
                         <h5 class="card-title">{{$guitars->name}}</h5>
                          
-                            <label class="label-stock bg-success">In Stock</label>
+                            <label class="label-stock bg-primary text-white">In Stock</label>
                         </h4>
                         <hr>
-                        <p class="card-text"> {{$guitars->price}}</p>
+                        <p class="card-text">ugx
+                {{number_format($guitars['price'])}}</p>
                         <p class="card-text"> {{$guitars->type}}</p>
                         
 

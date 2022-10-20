@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 <div class="py-3 py-md-5 bg-light">
         <div class="container">
             <div class="row">
@@ -16,6 +14,7 @@
                 </div>
                 <div class="col-md-7 mt-3">
                     <div class="product-view">
+                    <a href="/shop">Go Back</a>
                         <h4 class="product-name">
                         <h5>{{$guitars->name}}</h5>
                             <label class="label-stock bg-success">In Stock</label>
@@ -25,7 +24,8 @@
                             Home / Category / Product / HP Laptop
                         </p>
                        
-                                <h5>{{$guitars->price}}</h5>
+                                <h5>ugx
+                {{number_format($guitars['price'])}}</h5>
 
                                 <div class="wrapper">
       <span class="minus">
@@ -43,6 +43,7 @@
                         <div class="mt-2">
                             <a href="" class="btn btn1"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
                             <a href="" class="btn btn1"> <i class="fa fa-heart"></i> Add To Wishlist </a>
+                            
                         </div>
                         <div class="mt-3">
                           

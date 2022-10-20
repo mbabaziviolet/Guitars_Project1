@@ -78,6 +78,7 @@ class GuitarImageController extends AppBaseController
       
        if(!empty($request->file('image'))){
 
+         //picking the images in the file directory
         $fileName = time().$request->file('image')->getClientOriginalName();
         $path = $request->file('image')->storeAs('images', $fileName,'public');
         $requestData["image"] = '/storage/'.$path;

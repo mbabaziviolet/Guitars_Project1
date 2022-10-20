@@ -27,7 +27,8 @@
     <link href="{{ asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
-   
+    <link href="{{ asset('assets/css/counting.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -55,16 +56,18 @@
     <script src="{{ asset('assets/js/owl.carousel.min.js') }}" defer></script>
 
     <script src="{{ asset('assets/lib/counterup/counterup.min.js')}}"></script>
+    <script src="{{ asset('assets/js/counting.js') }}" defer></script>
     <script src="{{ asset('assets/js/app.js') }}" defer></script>
 
 
 
 
-   
+  
 
 
 
 </body>
+
 </html>
 
 

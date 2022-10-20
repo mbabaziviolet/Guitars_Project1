@@ -3,6 +3,7 @@
 @section('title','All Categories')
 @section('content')
 
+<!--the show page for a specific category-->
 <div class="py-3 py-md-5 bg-light">
         <div class="container">
             <div class="row">
@@ -15,30 +16,21 @@
                 </div>
                 <div class="col-md-7 mt-3">
                     <div class="product-view">
+                        <a href="/collections">Go Back</a>
                         <h4 class="product-name">
                         <h5>{{$categories->name}}</h5>
-                            <label class="label-stock bg-success">In Stock</label>
+                            <label class="label-stock bg-primary text-white">In Stock</label>
                         </h4>
                         <hr>
                         <p class="product-path">
                             Home / Category / Product / HP Laptop
                         </p>
                        
-                                <h5>{{$categories->price}}</h5>
+                                <h5>ugx
+                {{number_format($categories['price'])}}</h5>
 
                                 <div class="wrapper">
-      <span class="minus">
-        <span></span>
-      </span>
-      <span class="num">1</span>
-      <span class="plus">
-        <span></span>
-        <span></span>
-      </span>
-    </div>
-                           
-                         
-                      
+                                 
                         <div class="mt-2">
                             <a href="" class="btn btn1"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
                             <a href="" class="btn btn1"> <i class="fa fa-heart"></i> Add To Wishlist </a>

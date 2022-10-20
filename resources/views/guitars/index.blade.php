@@ -8,10 +8,12 @@
                     <h1>Guitars</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
+                   @can('guitar-create')
+                   <a class="btn btn-primary float-right"
                        href="{{ route('guitars.create') }}">
                         Add New
                     </a>
+                    @endcan
                 </div>
             </div>
         </div>
