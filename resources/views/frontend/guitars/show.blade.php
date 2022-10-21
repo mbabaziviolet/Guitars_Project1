@@ -24,7 +24,7 @@
                         <h4 class="product-name">
                         <h5 class="card-title">{{$guitars->name}}</h5>
                          
-                            <label class="label-stock bg-primary text-white">In Stock</label>
+                            <label class="label-stock bg-success text-white">In Stock</label>
                         </h4>
                         <hr>
                         <p class="card-text">ugx

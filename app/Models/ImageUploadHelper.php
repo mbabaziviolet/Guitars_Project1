@@ -30,4 +30,15 @@ class ImageUploadHelper extends Model
             return $image_url;
         }
     }
+
+    //funtion for imageUpload
+    public static function imageUpload($file)
+    {
+        //using the $fileName variable t store images
+        $fileName = time().$file->getClientOriginalName();
+        $path = $file->storeAs('images', $fileName,'public');
+        $requestData["image"] = '/storage/'.$path;
+
+        return $fileName ;
+    }
 }

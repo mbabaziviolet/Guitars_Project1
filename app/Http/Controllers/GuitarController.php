@@ -8,6 +8,7 @@ use App\Repositories\GuitarRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\Guitar;
+use App\Models\ImageUploadHelper;
 use Flash;
 use Response;
 
@@ -68,10 +69,8 @@ class GuitarController extends AppBaseController
        $guitar->price = $request->price;
        if(!empty($request->file('image'))){
 
-        //picking the images in the file directory
-        $fileName = time().$request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->storeAs('images', $fileName,'public');
-        $requestData["image"] = '/storage/'.$path;
+       
+        $fileName = ImageUploadHelper::imageUpload($request->file('image'));
 
         $guitar->image = $fileName;
        }
@@ -143,17 +142,29 @@ class GuitarController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateGuitarRequest $request)
-    {
-        $guitar = $this->guitarRepository->find($id);
 
+     //update function for a certain id
+    public function update(Request $request,$id)
+    {
+        $guitar = Guitar::find($id);
+       
         if (empty($guitar)) {
             Flash::error('Guitar not found');
 
             return redirect(route('guitars.index'));
         }
+        $guitar->name = $request->name;
+        $guitar->type = $request->type;
+        $guitar->price = $request->price;
 
-        $guitar = $this->guitarRepository->update($request->all(), $id);
+        if(!empty($request->file('image'))){
+//using the ImageUploadHelper class
+            $fileName = ImageUploadHelper::imageUpload($request->file('image'));
+    
+            $guitar->image = $fileName;
+           }
+          $guitar->save();
+        // $guitar = $this->guitarRepository->update($request->all(), $id);
 
         Flash::success('Guitar updated successfully.');
 

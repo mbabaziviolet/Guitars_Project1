@@ -22,7 +22,7 @@
                     <a href="/our-products">Go Back</a>
                         <h4 class="product-name">
                         <h5>{{$products->slug}}</h5>
-                            <label class="label-stock bg-primary text-white">In Stock</label>
+                            <label class="label-stock bg-success text-white">In Stock</label>
                         </h4>
                         <hr>
                         <p class="product-path">
@@ -50,7 +50,7 @@
                         <input type="hidden" value="{{ $products->name }}" name="name">
                         <input type="hidden" value="{{ $products->price }}" name="price">
                         <input type="hidden" value="{{ $products->image }}"  name="image">
-                        <button class="px-4 py-2  bg-blue-800 rounded">Add To Cart</button>
+                        <button class=" btn btn-primary px-2 py-1  bg-blue-800 rounded"><i class="fa fa-shopping-cart"></i> Add To Cart</button>
                     </form>          
                         <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star-half-o" aria-hidden="true"></i>

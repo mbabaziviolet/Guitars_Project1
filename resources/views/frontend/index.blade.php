@@ -25,7 +25,7 @@
         @endforeach
 
 </div>
-
+<!--section for guitars-->
 <section class="text-center">
         <h4 class="mb-5"><strong>View your favorite Guitars</strong></h4>
         <div class="row">
@@ -45,11 +45,19 @@
                 ugx
                 {{number_format($guitarlist['price'])}}
                 </p>
-                
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                 
+                <!--style for stars-->
+                          <div class="mt-2">
+                           
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                               
+                               
+                             
+                            </div>
                 
               </div>
             </div>

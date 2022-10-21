@@ -32,17 +32,17 @@
 
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
+<div class="login-box text">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+        <a href="" ><b>SIGN IN</b></a>
     </div>
 
     <!-- /.login-logo -->
 
     <!-- /.login-box-body -->
     <div class="card">
-        <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+        <div class="card-body login-card-body ">
+            <p class="login-box-msg text-blue">Hello there, Sign in and start managing your Admin Panel</p>
 
             <form method="post" action="{{ url('/login') }}">
                 @csrf
@@ -95,9 +95,9 @@
             <p class="mb-1">
                 <a href="{{ route('password.request') }}">I forgot my password</a>
             </p>
-            <p class="mb-0">
+            <!-- <p class="mb-0">
                 <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
-            </p>
+            </p> -->
         </div>
         <!-- /.login-card-body -->
     </div>

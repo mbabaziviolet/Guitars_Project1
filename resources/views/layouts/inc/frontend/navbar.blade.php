@@ -3,12 +3,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                        <h5 class="brand-name">Guitars</h5>
+                       
+                        <img  src="{{URL::asset('/images/joy123j.png')}}" alt="profile Pic" height="80" width="80">
+
                     </div>
                     <div class="col-md-5 my-auto">
-                        <form role="search">
+                        <form action="{{ url('search')}}" method="GET" role="search">
                             <div class="input-group">
-                                <input type="search" placeholder="Search your product" class="form-control" />
+                                <input type="search" name="search" value="" placeholder="Search your product" class="form-control" />
                                 <button class="btn bg-white" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
@@ -83,15 +85,15 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/')}}">Home</a>
                         </li>
                         
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('/collections')}}">Categories</a>
-                        </li>
+                        </li> -->
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/our-products')}}">Products</a>

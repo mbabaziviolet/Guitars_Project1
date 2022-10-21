@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\ImageUploadHelper;
 use Flash;
 use Response;
 
@@ -130,23 +131,36 @@ class ProductController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateProductRequest $request)
-    {
-        $product = $this->productRepository->find($id);
-
-        if (empty($product)) {
-            Flash::error('Product not found');
-
-            return redirect(route('products.index'));
-        }
-
-        $product = $this->productRepository->update($request->all(), $id);
-
-        Flash::success('Product updated successfully.');
-
-        return redirect(route('products.index'));
-    }
-
+     //update function for a certain id
+     public function update(Request $request,$id)
+     {
+         $product = Product::find($id);
+        
+         if (empty($product)) {
+             Flash::error('Product not found');
+ 
+             return redirect(route('products.index'));
+         }
+         $product->name = $request->name;
+         $product->slug = $request->slug;
+         $product->description = $request->description;
+         $product->quantity = $request->quantity;
+         $product->price = $request->price;
+ 
+         if(!empty($request->file('image'))){
+ //using the ImageUploadHelper class and using the imageUpload function
+             $fileName = ImageUploadHelper::imageUpload($request->file('image'));
+     
+             $product->image = $fileName;
+            }
+           $product->save();
+         // $guitar = $this->guitarRepository->update($request->all(), $id);
+ 
+         Flash::success('Product updated successfully.');
+ 
+         return redirect(route('products.index'));
+     }
+ 
     /**
      * Remove the specified Product from storage.
      *

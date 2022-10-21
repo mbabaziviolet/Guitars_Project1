@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +25,7 @@ Auth::routes();
 Route::get('/',[ App\Http\Controllers\FrontendController::class,'index']);
 
 
-
+//add to cart routes 
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'cartList'])->name('cart.list');
 Route::post('/cart', [App\Http\Controllers\CartController::class, 'addToCart'])->name('cart.store');
 Route::post('/update-cart', [App\Http\Controllers\CartController::class, 'updateCart'])->name('cart.update');
@@ -32,7 +33,7 @@ Route::post('/remove', [App\Http\Controllers\CartController::class, 'removeCart'
 Route::post('/clear', [App\Http\Controllers\CartController::class, 'clearAllCart'])->name('cart.clear');
 
 
-
+//picking a guitar by a certain id
 Route::get('/guitar/{id}',[ App\Http\Controllers\FrontendController::class,'guitar']);
 
 //the categories route
@@ -45,9 +46,8 @@ Route::get('/our-products',[ App\Http\Controllers\FrontendController::class,'pro
 //product route id
 Route::get('/our-products/{id}',[ App\Http\Controllers\FrontendController::class,'product']);
 
-
-//add to cart
-// Route::post("add_to_cart",[ProductController::class,'addToCart']);
+//search route
+Route::get('search',[ App\Http\Controllers\FrontendController::class,'searchProducts']);
 
 //shop route
 Route::get('/shop',[ App\Http\Controllers\FrontendController::class,'shops']);

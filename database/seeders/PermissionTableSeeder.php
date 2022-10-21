@@ -20,14 +20,19 @@ class PermissionTableSeeder extends Seeder
             'role-create',
             'role-edit',
             'role-delete',
+            'role-view',
             'guitar-create',
             'guitar-edit',
             'guitar-delete',
-            'guitar-list',
+            'guitar-view',
             'permission-create',
             'permission-edit',
             'permission-delete',
-            'permission-list',
+            'permission-view',
+            'product-create',
+            'product-edit',
+            'product-delete',
+            'product-view',
 
 
         ];

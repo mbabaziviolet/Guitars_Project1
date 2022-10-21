@@ -19,6 +19,21 @@ class FrontendController extends Controller
 
     }
 
+    //the search function
+
+    public function searchProducts(Request $request)
+    {
+        //the search below is the name attribute in the search form
+        if($request->search){
+            $searchProducts = Product::where('name','LIKE','%'.$request->search.'%')->latest()->paginate(16);
+            return view('frontend.pages.search',compact('searchProducts'));
+        }else{
+            return redirect()->back()->with('message','Empty search');
+
+        }
+        
+    }
+
      // the guitars show page for a specific guitar using id
 
     public function guitar($id)

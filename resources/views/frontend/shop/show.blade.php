@@ -17,34 +17,37 @@
                     <a href="/shop">Go Back</a>
                         <h4 class="product-name">
                         <h5>{{$guitars->name}}</h5>
-                            <label class="label-stock bg-success">In Stock</label>
+                            <label class="label-stock bg-success text-white">In Stock</label>
                         </h4>
                         <hr>
                         <p class="product-path">
-                            Home / Category / Product / HP Laptop
+                            Home / Category / Product / Guitars
                         </p>
                        
                                 <h5>ugx
                 {{number_format($guitars['price'])}}</h5>
 
                                 <div class="wrapper">
-      <span class="minus">
-        <span></span>
-      </span>
-      <span class="num">1</span>
-      <span class="plus">
-        <span></span>
-        <span></span>
-      </span>
-    </div>
-                           
+      
+                           <!--add to cart -->
+                        <div class="mt-3">
+                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $guitars['id'] }}" name="id">
+                     
+                        <input type="hidden" value="1" name="quantity">
+                        <input type="hidden" value="{{ $guitars->name }}" name="name">
+                        <input type="hidden" value="{{ $guitars->price }}" name="price">
+                        <input type="hidden" value="{{ $guitars->image }}"  name="image">
+                        <button class=" btn btn-primary px-2 py-1  bg-blue-800 rounded"><i class="fa fa-shopping-cart"></i> Add To Cart</button>
+                    </form>          
                          
-                      
+<!--                       
                         <div class="mt-2">
-                            <a href="" class="btn btn1"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
+                            <a href="{{ url('/cart')}}" class="btn btn1"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
                             <a href="" class="btn btn1"> <i class="fa fa-heart"></i> Add To Wishlist </a>
                             
-                        </div>
+                        </div> -->
                         <div class="mt-3">
                           
                             

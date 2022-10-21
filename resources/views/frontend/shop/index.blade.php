@@ -12,10 +12,7 @@
               <img
                 class="position-absolute w-100 h-100"
                 src="{{URL::asset('/images/guitarbst.jpg')}}"
-                alt="" ><h1>heee</h1>
-
-                style="object-fit: cover"
-              />
+                alt="" >
             </div>
 
 <div class="container-xxl py-5">
@@ -64,13 +61,22 @@
                 {{number_format($guitarlist['price'])}}</span>
                                     <span class="text-body text-decoration-line-through"></span>
                                 </div>
+
+                                <div class="mt-2">
+                           
+                           <i class="fa fa-star" aria-hidden="true"></i>
+                           <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                           <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                           <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                        
+                       </div>
+
+
                                 <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
+                                    <!-- <small class="w-50 text-center border-end py-2">
                                         <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
+                                    </small> -->
+                                   
                                 </div>
                             </div>
                         </div>
@@ -79,7 +85,7 @@
         
 
                         <div class="col-12 text-center">
-                            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+                            <a class="btn btn-primary rounded-pill py-3 px-5" href="{{ url('/our-products')}}">Browse More Products</a>
                         </div>
 
 </div>
